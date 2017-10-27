@@ -1,21 +1,23 @@
 #!/usr/bin/env puthon3
+import operator
+
+ops = {
+	'+': operator.add,
+	'-': operator.subtract,
+}
 
 def calculate(myarg):
 	stack = list() 
 	for token in myarg.split():
-		if token == '+':
-			arg2 = stack.pop()
-			arg1 = stack.pop()
-			result = arg1 + arg2
-			stack.append(result)
-		elif token == '-':
-			arg2 = stack.pop()
-			arg1 = stack.pop()
-			result = arg1 - arg2
-			stack.append(result)
-		else:
+		try:
 			stack.append(int(token))
-	print(stack)
+		except ValueError: 
+			arg2 = stack.pop()
+			arg1 = stack.pop()
+			function = ops[token]
+			result = function(arg1,arg2)
+			stack.append(result)		
+	#print(stack)
 	return stack.pop()
 
 def main():
