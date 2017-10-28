@@ -3,7 +3,9 @@ import operator
 
 ops = {
 	'+': operator.add,
-	'-': operator.subtract,
+	'-': operator.sub,
+	'*': operator.mul,
+	'/': operator.truediv	
 }
 
 def calculate(myarg):
@@ -15,6 +17,7 @@ def calculate(myarg):
 			arg2 = stack.pop()
 			arg1 = stack.pop()
 			function = ops[token]
+			function(arg1,arg2)
 			result = function(arg1,arg2)
 			stack.append(result)		
 	#print(stack)
