@@ -1,5 +1,6 @@
-#!/usr/bin/env puthon3
+#!/usr/bin/env python3
 import operator
+import readline
 
 ops = {
 	'+': operator.add,
@@ -20,7 +21,6 @@ def calculate(myarg):
 			function(arg1,arg2)
 			result = function(arg1,arg2)
 			stack.append(result)		
-	#print(stack)
 	return stack.pop()
 
 def main():
