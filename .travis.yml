@@ -3,4 +3,4 @@ python:
   - "3.5"
   
 script:
-  - test
+  - make test
